@@ -4,6 +4,7 @@ import { ProcurementProductTable } from './procurement-product-table';
 import { ProcurementActions } from './procurement-actions';
 import { ProcurementSummary } from './procurement-summary';
 import { ProcurementSupplierOffers } from './procurement-supplier-offers';
+import { ProcurementSupplierProposals } from './procurement-supplier-proposals';
 
 interface ProcurementDetailProps {
   procurement: Procurement;
@@ -27,6 +28,7 @@ export function ProcurementDetail({ procurement }: ProcurementDetailProps) {
           <ProcurementProductTable products={procurement.products} />
           <ProcurementSummary products={procurement.products} />
           <ProcurementSupplierOffers />
+          <ProcurementSupplierProposals />
         </div>
       </div>
     </div>

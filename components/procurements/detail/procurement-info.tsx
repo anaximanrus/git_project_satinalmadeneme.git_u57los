@@ -2,18 +2,24 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Procurement } from '@/types/procurement';
 import { format } from 'date-fns';
+import { PROCUREMENT_STATUS_COLORS } from '@/lib/status-colors';
 
 interface ProcurementInfoProps {
   procurement: Procurement;
 }
 
 export function ProcurementInfo({ procurement }: ProcurementInfoProps) {
+  const statusConfig = PROCUREMENT_STATUS_COLORS[procurement.status];
+
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <InfoCard
         title="Status"
         content={
-          <Badge variant={procurement.status === 'approved' ? 'default' : 'secondary'}>
+          <Badge 
+            variant="custom"
+            customClassName={`${statusConfig.badge}`}
+          >
             {procurement.status.replace('_', ' ')}
           </Badge>
         }
